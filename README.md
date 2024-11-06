@@ -1,8 +1,6 @@
 # movis_app
 
-A new Flutter project.
-![Uploading image.png…]()
-
+A new Movies App project.
 
 ## Getting Started
 
