@@ -5,19 +5,19 @@ import 'package:movis_app/core/helpers/app_regex.dart';
 import 'package:movis_app/core/helpers/navegations.dart';
 import 'package:movis_app/core/helpers/spaser.dart';
 import 'package:movis_app/core/routes/routes.dart';
-import 'package:movis_app/core/widgets/custome_text_button.dart';
-import 'package:movis_app/features/auth_features/login/UI/widgets/custome_app_bar.dart';
 import 'package:movis_app/core/widgets/custome_button.dart';
+import 'package:movis_app/core/widgets/custome_text_button.dart';
 import 'package:movis_app/core/widgets/custome_text_feald.dart';
-import 'package:movis_app/features/auth_features/login/logic/cubit/login_cubit.dart';
+import 'package:movis_app/features/auth_features/login/UI/widgets/custome_app_bar.dart';
+import 'package:movis_app/features/auth_features/register/logic/cubit/register_cubit.dart';
 
-class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
+class RegisterPage extends StatelessWidget {
+  const RegisterPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     final formKey = GlobalKey<FormState>();
-    return BlocConsumer<LoginCubit, LoginState>(
+    return BlocConsumer<RegisterCubit, RegisterState>(
       listener: (context, state) {
         // TODO: implement listener
         if (state is ShowPassword) {
@@ -59,10 +59,11 @@ class LoginPage extends StatelessWidget {
                         verticalSpace(14.h),
                         //password field
                         CustomeTextFeald(
-                          hintText: "Enter your password",
+                          hintText: "Create a password",
                           textInputType: TextInputType.visiblePassword,
-                          textInputAction: TextInputAction.done,
-                          obscureText: context.read<LoginCubit>().showPassword,
+                          textInputAction: TextInputAction.next,
+                          obscureText:
+                              context.read<RegisterCubit>().showPassword,
                           validator: (value) {
                             if (value == null ||
                                 value.isEmpty ||
@@ -73,14 +74,35 @@ class LoginPage extends StatelessWidget {
                           },
                           suffixIcon: TextButton(
                             onPressed: () {
-                              context.read<LoginCubit>().togglePassword();
+                              context.read<RegisterCubit>().togglePassword();
                             },
                             child: Text(
-                              context.read<LoginCubit>().showPassword
+                              context.read<RegisterCubit>().showPassword
                                   ? "Show"
                                   : "Hide",
                               style: const TextStyle(color: Colors.grey),
                             ),
+                          ),
+                        ),
+                        verticalSpace(14.h),
+                        CustomeTextFeald(
+                          hintText: "Confirm your password",
+                          textInputType: TextInputType.visiblePassword,
+                          textInputAction: TextInputAction.done,
+                          obscureText:
+                              context.read<RegisterCubit>().showConfirmPassword,
+                          validator: (value) {
+                            if (value == null ||
+                                value.isEmpty ||
+                                !AppRegex.isPassword(value)) {
+                              return "Please enter a valid password";
+                            }
+                            return null;
+                          },
+                          suffixIcon: TextButton(
+                            onPressed: () {},
+                            child: const Text("Show",
+                                style: TextStyle(color: Colors.grey)),
                           ),
                         ),
                         verticalSpace(14.h),
@@ -117,14 +139,14 @@ class LoginPage extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text("Don't have an account?",
+                            Text("I allredy have an account",
                                 style: TextStyle(
                                     fontSize: 14.sp, color: Colors.grey)),
                             verticalSpace(10.h),
                             CustomTextButton(
-                              text: "Register Now",
+                              text: "Login",
                               onPressed: () {
-                                context.pushNamed(Routes.registerPage);
+                                context.pushNamed(Routes.loginPage);
                               },
                             ),
                           ],
@@ -132,7 +154,7 @@ class LoginPage extends StatelessWidget {
                         verticalSpace(30.h),
                         Text(
                             textAlign: TextAlign.center,
-                            "Sign in is protected by Google reCAPTCHA to\n ensure your not bot. Learn more",
+                            "Sign up is protected by Google reCAPTCHA to\n ensure your not bot. Learn more",
                             style:
                                 TextStyle(color: Colors.grey, fontSize: 12.sp)),
                       ],
