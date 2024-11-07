@@ -45,11 +45,12 @@ android {
     productFlavors {
         development {
             dimension "default"
-            applicationIdSuffix ".dev"
+            applicationId "com.example.movis_app"
             resValue "string", "app_name", "Movis Development"
         }
         production {
             dimension "default"
+            applicationId "com.example.movis_app"
             resValue "string", "app_name", "Movis Production"
         }
     }
