@@ -116,14 +116,7 @@ class RegisterPage extends StatelessWidget {
                             }
                           },
                         ),
-                        //forgot password button
-                        CustomTextButton(
-                          text: "Forgot password?",
-                          onPressed: () {
-                            context.pushNamed(Routes.forgotPassword);
-                          },
-                        ),
-                        verticalSpace(20.h),
+                        verticalSpace(14.h),
                         Text("OR",
                             style:
                                 TextStyle(fontSize: 14.sp, color: Colors.grey)),
@@ -153,10 +146,10 @@ class RegisterPage extends StatelessWidget {
                         ),
                         verticalSpace(30.h),
                         Text(
-                            textAlign: TextAlign.center,
-                            "Sign up is protected by Google reCAPTCHA to\n ensure your not bot. Learn more",
-                            style:
-                                TextStyle(color: Colors.grey, fontSize: 12.sp)),
+                          textAlign: TextAlign.center,
+                          "Sign up is protected by Google reCAPTCHA to\n ensure your not bot. Learn more",
+                          style: TextStyle(color: Colors.grey, fontSize: 12.sp),
+                        ),
                       ],
                     ),
                   ),
