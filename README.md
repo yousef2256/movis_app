@@ -8,3 +8,4 @@ A new Movies App project.
 - clean architecture 
 - bloc state management 
 - responsive UI for All devices
+- add flutter flavers (Development flaver & Production flaver)

@@ -13,7 +13,7 @@ class MovisApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ScreenUtilInit(
+    return ScreenUtilInit( 
       designSize: const Size(360, 800),
       minTextAdapt: true,
       builder: (context, child) => MaterialApp(
