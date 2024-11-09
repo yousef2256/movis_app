@@ -69,10 +69,31 @@ class OnpordingScreen extends StatelessWidget {
                         color: Theme.of(context).colorScheme.primary),
                     borderRadius: BorderRadius.circular(10.r),
                   ),
-                  child: Text(
-                    textAlign: TextAlign.center,
-                    "Create a Stack Movis account\nand more.\nGo to StackMovis.com/more",
-                    style: TextStyle(fontSize: 14.sp),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        textAlign: TextAlign.center,
+                        "Create a Stack Movis account\nand more.",
+                        style: TextStyle(fontSize: 14.sp),
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            "Go to  ",
+                            style: TextStyle(fontSize: 14.sp),
+                          ),
+                          Text(
+                            "StackMovis.com/more",
+                            style: TextStyle(
+                              color: Colors.blue,
+                              fontSize: 14.sp,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
                 ),
               ],

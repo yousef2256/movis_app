@@ -100,9 +100,17 @@ class RegisterPage extends StatelessWidget {
                             return null;
                           },
                           suffixIcon: TextButton(
-                            onPressed: () {},
-                            child: const Text("Show",
-                                style: TextStyle(color: Colors.grey)),
+                            onPressed: () {
+                              context
+                                  .read<RegisterCubit>()
+                                  .toggleConfirmPassword();
+                            },
+                            child: Text(
+                              context.read<RegisterCubit>().showConfirmPassword
+                                  ? "Show"
+                                  : "Hide",
+                              style: const TextStyle(color: Colors.grey),
+                            ),
                           ),
                         ),
                         verticalSpace(14.h),
