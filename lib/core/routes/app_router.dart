@@ -8,6 +8,8 @@ import 'package:movis_app/features/auth_features/register/UI/register_page.dart'
 import 'package:movis_app/features/auth_features/fotget_password/forget_password.dart';
 import 'package:movis_app/features/auth_features/register/logic/cubit/register_cubit.dart';
 import 'package:movis_app/features/home_features/UI/home_screen.dart';
+import 'package:movis_app/features/layout/layout.dart';
+import 'package:movis_app/features/layout/logic/cubit/layout_cubit.dart';
 
 class AppRouter {
   Route generateRouter(RouteSettings settings) {
@@ -37,6 +39,13 @@ class AppRouter {
       case Routes.onpordingPage:
         return MaterialPageRoute(
           builder: (context) => const OnpordingScreen(),
+        );
+      case Routes.layout:
+        return MaterialPageRoute(
+          builder: (context) => BlocProvider(
+            create: (context) => LayoutCubit(),
+            child: const Layout(),
+          ),
         );
 
       // Default Route if no route is defined

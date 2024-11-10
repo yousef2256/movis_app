@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movis_app/core/helpers/navegations.dart';
 import 'package:movis_app/core/helpers/spaser.dart';
 import 'package:movis_app/core/routes/routes.dart';
+import 'package:movis_app/core/widgets/app_button.dart';
 
 class OnpordingAppBar extends StatelessWidget {
   const OnpordingAppBar({
@@ -37,21 +38,11 @@ class OnpordingAppBar extends StatelessWidget {
               horizontalSpace(12.w),
 
               //sign in button
-              GestureDetector(
+              AppButton(
+                text: "Sign in",
                 onTap: () {
                   context.pushNamed(Routes.loginPage);
                 },
-                child: Container(
-                  padding:
-                      EdgeInsets.symmetric(horizontal: 20.w, vertical: 9.h),
-                  decoration: BoxDecoration(
-                      color: Theme.of(context).colorScheme.secondary,
-                      borderRadius: BorderRadius.circular(5.r)),
-                  child: const Text(
-                    "Sign in",
-                    style: TextStyle(fontWeight: FontWeight.w700),
-                  ),
-                ),
               ),
             ],
           ),

@@ -21,7 +21,7 @@ class MovisApp extends StatelessWidget {
         title: 'Movis App',
         darkTheme: darkTheme,
         themeMode: ThemeMode.dark,
-        initialRoute: Routes.homePage,
+        initialRoute: Routes.layout,
         onGenerateRoute: appRouter.generateRouter,
       ),
     );
