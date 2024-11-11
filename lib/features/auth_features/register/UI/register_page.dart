@@ -18,14 +18,7 @@ class RegisterPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final formKey = GlobalKey<FormState>();
     return BlocConsumer<RegisterCubit, RegisterState>(
-      listener: (context, state) {
-        // TODO: implement listener
-        if (state is ShowPassword) {
-          print("show password");
-        } else if (state is HidePassword) {
-          print("hide password");
-        }
-      },
+      listener: (context, state) {},
       builder: (context, state) {
         return Scaffold(
           appBar: const CustomeAppBar(),
@@ -42,6 +35,16 @@ class RegisterPage extends StatelessWidget {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
+                        //WELCOME TEXT
+                        Text(
+                          "W e l c o m e",
+                          style: TextStyle(
+                              fontSize: 16.sp, fontWeight: FontWeight.w300),
+                        ),
+                        verticalSpace(10.h),
+                        //logo
+                        Image.asset("assets/images/logo.png", height: 60.h),
+                        verticalSpace(30.h),
                         //email field
                         CustomeTextFeald(
                           hintText: "Enter your email",
@@ -147,7 +150,7 @@ class RegisterPage extends StatelessWidget {
                             CustomTextButton(
                               text: "Login",
                               onPressed: () {
-                                context.pushNamed(Routes.loginPage);
+                                context.pop();
                               },
                             ),
                           ],

@@ -30,6 +30,16 @@ class ForgetPassword extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
+                    //WELCOME TEXT
+                    Text(
+                      "F o r g e t   P a s s w o r d",
+                      style: TextStyle(
+                          fontSize: 16.sp, fontWeight: FontWeight.w300),
+                    ),
+                    verticalSpace(10.h),
+                    //logo
+                    Image.asset("assets/images/logo.png", height: 60.h),
+                    verticalSpace(30.h),
                     //email field
                     CustomeTextFeald(
                       hintText: "Enter your email",

@@ -3,6 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movis_app/core/helpers/spaser.dart';
 import 'package:movis_app/features/auth_features/onpording/UI/widgets/onpording_app_bar.dart';
 
+import '../../../../core/utils/constens/images.dart';
+
 class OnpordingScreen extends StatelessWidget {
   const OnpordingScreen({super.key});
 
@@ -15,7 +17,7 @@ class OnpordingScreen extends StatelessWidget {
           Image.asset(
             width: double.infinity,
             fit: BoxFit.cover,
-            "assets/images/background.png",
+            ImagePath.backgroundImage,
           ),
           //gradient
           Container(

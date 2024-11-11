@@ -21,7 +21,7 @@ class CustomeAppBar extends StatelessWidget implements PreferredSizeWidget {
         },
         icon: const Icon(Icons.arrow_back_ios_new),
       ),
-      title: Image.asset("assets/images/logo.png", height: 32.h),
+      // title: Image.asset("assets/images/logo.png", height: 32.h),
       actions: [
         TextButton(
           onPressed: () {},

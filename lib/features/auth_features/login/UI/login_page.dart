@@ -12,20 +12,13 @@ import 'package:movis_app/core/widgets/custome_text_feald.dart';
 import 'package:movis_app/features/auth_features/login/logic/cubit/login_cubit.dart';
 
 class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
+  LoginPage({super.key});
 
+  final formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
-    final formKey = GlobalKey<FormState>();
     return BlocConsumer<LoginCubit, LoginState>(
-      listener: (context, state) {
-        // TODO: implement listener
-        if (state is ShowPassword) {
-          print("show password");
-        } else if (state is HidePassword) {
-          print("hide password");
-        }
-      },
+      listener: (context, state) {},
       builder: (context, state) {
         return Scaffold(
           appBar: const CustomeAppBar(),
@@ -42,6 +35,16 @@ class LoginPage extends StatelessWidget {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
+                        //WELCOME TEXT
+                        Text(
+                          "W e l c o m e   B a c k",
+                          style: TextStyle(
+                              fontSize: 16.sp, fontWeight: FontWeight.w300),
+                        ),
+                        verticalSpace(10.h),
+                        //logo
+                        Image.asset("assets/images/logo.png", height: 60.h),
+                        verticalSpace(30.h),
                         //email field
                         CustomeTextFeald(
                           hintText: "Enter your email",
