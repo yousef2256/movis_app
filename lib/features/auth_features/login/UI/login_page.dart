@@ -37,7 +37,7 @@ class LoginPage extends StatelessWidget {
                       children: [
                         //WELCOME TEXT
                         Text(
-                          "W e l c o m e   B a c k",
+                          "W e l c o m e   IN",
                           style: TextStyle(
                               fontSize: 16.sp, fontWeight: FontWeight.w300),
                         ),
@@ -134,10 +134,10 @@ class LoginPage extends StatelessWidget {
                         ),
                         verticalSpace(30.h),
                         Text(
-                            textAlign: TextAlign.center,
-                            "Sign in is protected by Google reCAPTCHA to\n ensure your not bot. Learn more",
-                            style:
-                                TextStyle(color: Colors.grey, fontSize: 12.sp)),
+                          textAlign: TextAlign.center,
+                          "Sign in is protected by Google reCAPTCHA to\n ensure your not bot. Learn more",
+                          style: TextStyle(color: Colors.grey, fontSize: 12.sp),
+                        ),
                       ],
                     ),
                   ),
