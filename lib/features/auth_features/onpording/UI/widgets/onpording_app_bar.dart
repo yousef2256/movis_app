@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movis_app/core/helpers/navegations.dart';
 import 'package:movis_app/core/helpers/spaser.dart';
 import 'package:movis_app/core/routes/routes.dart';
+import 'package:movis_app/core/utils/constens/images.dart';
 import 'package:movis_app/core/widgets/app_button.dart';
 
 class OnpordingAppBar extends StatelessWidget {
@@ -18,7 +19,10 @@ class OnpordingAppBar extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           //logo
-          Image.asset("assets/images/logo.png", height: 32.h),
+          Image.asset(
+            ImagePath.logoImage,
+            height: 32.h,
+          ),
 
           Row(
             children: [

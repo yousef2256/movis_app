@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movis_app/core/helpers/spaser.dart';
+import 'package:movis_app/core/theme/text_styls/texts_styles.dart';
 import 'package:movis_app/features/auth_features/onpording/UI/widgets/onpording_app_bar.dart';
 
 import '../../../../core/utils/constens/images.dart';
@@ -46,9 +47,7 @@ class OnpordingScreen extends StatelessWidget {
                   children: [
                     Text(
                       "Tap into endless\n entertainment",
-                      style: TextStyle(
-                        fontSize: 24.sp,
-                      ),
+                      style: TextStyles.onboardingTitleStyle,
                     ),
                     verticalSpace(12.h),
                     Text(
@@ -77,21 +76,18 @@ class OnpordingScreen extends StatelessWidget {
                       Text(
                         textAlign: TextAlign.center,
                         "Create a Stack Movis account\nand more.",
-                        style: TextStyle(fontSize: 14.sp),
+                        style: TextStyles.onboardingBodyStyle,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
                             "Go to  ",
-                            style: TextStyle(fontSize: 14.sp),
+                            style: TextStyles.onboardingBodyStyle,
                           ),
                           Text(
                             "StackMovis.com/more",
-                            style: TextStyle(
-                              color: Colors.blue,
-                              fontSize: 14.sp,
-                            ),
+                            style: TextStyles.onboardingLinkStyle,
                           ),
                         ],
                       ),

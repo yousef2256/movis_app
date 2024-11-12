@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movis_app/features/home_features/UI/widgets/hot_movies.dart';
-import 'package:movis_app/features/home_features/UI/widgets/trending_movies.dart';
+import 'package:movis_app/features/home_features/UI/widgets/top_rated_movies.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -20,11 +20,11 @@ class HomeScreen extends StatelessWidget {
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 16.w),
               child: Text(
-                'Trending Movies',
+                'Top Rated Movies',
                 style: TextStyle(fontSize: 18.sp),
               ),
             ),
-            const TrendingMovies(),
+            const TopRatedMovies(),
 
             //top movies
 

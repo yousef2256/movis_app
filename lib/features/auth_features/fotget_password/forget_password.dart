@@ -4,6 +4,7 @@ import 'package:movis_app/core/helpers/app_regex.dart';
 import 'package:movis_app/core/helpers/navegations.dart';
 import 'package:movis_app/core/helpers/spaser.dart';
 import 'package:movis_app/core/routes/routes.dart';
+import 'package:movis_app/core/theme/text_styls/texts_styles.dart';
 import 'package:movis_app/core/widgets/custome_button.dart';
 import 'package:movis_app/core/widgets/custome_text_button.dart';
 import 'package:movis_app/core/widgets/custome_text_feald.dart';
@@ -33,13 +34,14 @@ class ForgetPassword extends StatelessWidget {
                     //WELCOME TEXT
                     Text(
                       "F o r g e t   P a s s w o r d",
-                      style: TextStyle(
-                          fontSize: 16.sp, fontWeight: FontWeight.w300),
+                      style: TextStyles.headlineSmall(context),
                     ),
                     verticalSpace(10.h),
+
                     //logo
                     Image.asset("assets/images/logo.png", height: 60.h),
                     verticalSpace(30.h),
+
                     //email field
                     CustomeTextFeald(
                       hintText: "Enter your email",
@@ -66,9 +68,11 @@ class ForgetPassword extends StatelessWidget {
                       },
                     ),
                     verticalSpace(20.h),
-                    Text("OR",
-                        style: TextStyle(fontSize: 14.sp, color: Colors.grey)),
+
+                    // OR text
+                    Text("OR", style: TextStyles.bodyGreyTextStyle),
                     verticalSpace(10.h),
+
                     //use a sign in code button
                     CustomeButton(
                       text: "Use a sign in code",
@@ -77,12 +81,13 @@ class ForgetPassword extends StatelessWidget {
                       textColor: Colors.white,
                     ),
                     verticalSpace(10.h),
+
+                    //I allredy have an account text
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text("I allredy have an account",
-                            style:
-                                TextStyle(fontSize: 14.sp, color: Colors.grey)),
+                            style: TextStyles.bodyGreyTextStyle),
                         verticalSpace(10.h),
                         CustomTextButton(
                           text: "Login",
@@ -93,10 +98,12 @@ class ForgetPassword extends StatelessWidget {
                       ],
                     ),
                     verticalSpace(30.h),
+
+                    //Sign in is protected by Google reCAPTCHA to ensure your not bot. Learn more text
                     Text(
                         textAlign: TextAlign.center,
                         "Sign in is protected by Google reCAPTCHA to\n ensure your not bot. Learn more",
-                        style: TextStyle(color: Colors.grey, fontSize: 12.sp)),
+                        style: TextStyles.bodyGreyTextStyle),
                   ],
                 ),
               ),
