@@ -5,6 +5,8 @@ import 'package:movis_app/core/helpers/app_regex.dart';
 import 'package:movis_app/core/helpers/navegations.dart';
 import 'package:movis_app/core/helpers/spaser.dart';
 import 'package:movis_app/core/routes/routes.dart';
+import 'package:movis_app/core/theme/text_styls/texts_styles.dart';
+import 'package:movis_app/core/utils/constens/images.dart';
 import 'package:movis_app/core/widgets/custome_button.dart';
 import 'package:movis_app/core/widgets/custome_text_button.dart';
 import 'package:movis_app/core/widgets/custome_text_feald.dart';
@@ -38,12 +40,11 @@ class RegisterPage extends StatelessWidget {
                         //WELCOME TEXT
                         Text(
                           "W e l c o m e",
-                          style: TextStyle(
-                              fontSize: 16.sp, fontWeight: FontWeight.w300),
+                          style: TextStyles.welcomeTextStyle,
                         ),
                         verticalSpace(10.h),
                         //logo
-                        Image.asset("assets/images/logo.png", height: 60.h),
+                        Image.asset(ImagePath.logoImage, height: 60.h),
                         verticalSpace(30.h),
                         //email field
                         CustomeTextFeald(
@@ -83,7 +84,7 @@ class RegisterPage extends StatelessWidget {
                               context.read<RegisterCubit>().showPassword
                                   ? "Show"
                                   : "Hide",
-                              style: const TextStyle(color: Colors.grey),
+                              style: TextStyles.bodyGreyTextStyle,
                             ),
                           ),
                         ),
@@ -112,7 +113,7 @@ class RegisterPage extends StatelessWidget {
                               context.read<RegisterCubit>().showConfirmPassword
                                   ? "Show"
                                   : "Hide",
-                              style: const TextStyle(color: Colors.grey),
+                              style: TextStyles.bodyGreyTextStyle,
                             ),
                           ),
                         ),
@@ -128,9 +129,7 @@ class RegisterPage extends StatelessWidget {
                           },
                         ),
                         verticalSpace(14.h),
-                        Text("OR",
-                            style:
-                                TextStyle(fontSize: 14.sp, color: Colors.grey)),
+                        Text("OR", style: TextStyles.bodyGreyTextStyle),
                         verticalSpace(10.h),
                         //use a sign in code button
                         CustomeButton(
@@ -144,8 +143,7 @@ class RegisterPage extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text("I allredy have an account",
-                                style: TextStyle(
-                                    fontSize: 14.sp, color: Colors.grey)),
+                                style: TextStyles.bodyGreyTextStyle),
                             verticalSpace(10.h),
                             CustomTextButton(
                               text: "Login",
@@ -159,7 +157,7 @@ class RegisterPage extends StatelessWidget {
                         Text(
                           textAlign: TextAlign.center,
                           "Sign up is protected by Google reCAPTCHA to\n ensure your not bot. Learn more",
-                          style: TextStyle(color: Colors.grey, fontSize: 12.sp),
+                          style: TextStyles.bodyGreyTextStyle,
                         ),
                       ],
                     ),

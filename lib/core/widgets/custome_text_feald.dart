@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:movis_app/core/theme/text_styls/texts_styles.dart';
 
 class CustomeTextFeald extends StatelessWidget {
   final String hintText;
@@ -34,7 +35,7 @@ class CustomeTextFeald extends StatelessWidget {
         prefixIcon: prefixIcon,
         suffixIcon: suffixIcon,
         hintText: hintText,
-        hintStyle: const TextStyle(color: Colors.grey),
+        hintStyle: TextStyles.bodyGreyTextStyle,
         contentPadding: EdgeInsets.symmetric(vertical: 15.h, horizontal: 18.w),
         fillColor: Theme.of(context).colorScheme.secondary,
         filled: true,

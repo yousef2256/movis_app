@@ -25,8 +25,8 @@ class HotMovies extends StatelessWidget {
                 sigmaY: 8.0,
               ),
               child: Image.asset(
-                fit: BoxFit.cover,
-                width: double.infinity,
+                fit: BoxFit.fill,
+                // width: double.infinity,
                 'assets/movies_images/crown.jpg',
               ),
             ),
