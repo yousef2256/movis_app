@@ -1,7 +1,7 @@
 // lib/api_error_handler.dart
 import 'package:movis_app/core/api/api_constents.dart';
 
-class ApiException implements Exception {
+class ApiException {
   final String message;
   final int? statusCode;
 
