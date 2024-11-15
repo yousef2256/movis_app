@@ -40,3 +40,14 @@ class DioFactory {
     );
   }
 }
+
+class Content {
+  String? name;
+  String? imageUrl;
+  String? titleImageUrl;
+  Content({
+    this.name,
+    this.imageUrl,
+    this.titleImageUrl,
+  });
+}

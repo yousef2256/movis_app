@@ -86,7 +86,9 @@ class HotMovies extends StatelessWidget {
                 AppButton(
                   text: "my list",
                   icon: Icons.add,
-                  onTap: () {},
+                  onTap: () {
+                    
+                  },
                 ),
               ],
             ),

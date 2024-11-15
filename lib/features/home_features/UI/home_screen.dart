@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movis_app/features/home_features/UI/widgets/hot_movies.dart';
-import 'package:movis_app/features/home_features/UI/widgets/top_rated_movies.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -9,6 +8,10 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+      ),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -24,11 +27,11 @@ class HomeScreen extends StatelessWidget {
                 style: TextStyle(fontSize: 18.sp),
               ),
             ),
-            const TopRatedMovies(),
+            // const TopRatedMovies(),
 
             //top movies
-
-            //categories
+            
+            //categoriess
 
             //
           ],
