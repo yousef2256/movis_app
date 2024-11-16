@@ -69,7 +69,27 @@ class HotMovies extends StatelessWidget {
               ),
             ),
           ),
-          //gredient container
+          // dots indicator
+          Positioned(
+            bottom: 70.h,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                for (int i = 0; i < 8; i++) ...[
+                  Container(
+                    width: 5.w,
+                    height: 5.h,
+                    decoration: const BoxDecoration(
+                      color: Colors.white,
+                      shape: BoxShape.circle,
+                    ),
+                  ),
+                  if (i < 7) horizontalSpace(5.w),
+                ],
+              ],
+            ),
+          ),
+          // buttons
           Positioned(
             bottom: 25.h,
             child: Row(
@@ -86,9 +106,7 @@ class HotMovies extends StatelessWidget {
                 AppButton(
                   text: "my list",
                   icon: Icons.add,
-                  onTap: () {
-                    
-                  },
+                  onTap: () {},
                 ),
               ],
             ),

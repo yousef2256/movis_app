@@ -28,18 +28,23 @@ class ApiConstents {
 }
 
 // lib/api_error_strings.dart
-class ApiError {
-  static const String badRequest = "Bad Request. The request was unacceptable.";
-  static const String unauthorized = "Unauthorized. Please check your API key.";
-  static const String forbidden =
-      "Forbidden. Access to this resource is denied.";
-  static const String notFound =
-      "Not Found. The requested resource could not be found.";
-  static const String internalServerError =
-      "Internal Server Error. Please try again later.";
-  static const String serviceUnavailable =
-      "Service Unavailable. Please try again later.";
-  static const String unexpectedError = "Unexpected Error. Please try again.";
-  static const String networkError =
-      "Network Error. Please check your internet connection.";
+
+class ApiErrors {
+  static const String badRequestError = "badRequestError";
+  static const String noContent = "noContent";
+  static const String forbiddenError = "forbiddenError";
+  static const String unauthorizedError = "unauthorizedError";
+  static const String notFoundError = "notFoundError";
+  static const String conflictError = "conflictError";
+  static const String internalServerError = "internalServerError";
+  static const String unknownError = "unknownError";
+  static const String timeoutError = "timeoutError";
+  static const String defaultError = "defaultError";
+  static const String cacheError = "cacheError";
+  static const String noInternetError = "noInternetError";
+  static const String loadingMessage = "loading_message";
+  static const String retryAgainMessage = "retry_again_message";
+  static const String ok = "Ok";
 }
+
+

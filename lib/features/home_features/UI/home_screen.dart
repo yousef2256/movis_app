@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:movis_app/core/utils/constens/images.dart';
 import 'package:movis_app/features/home_features/UI/widgets/hot_movies.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -10,6 +11,13 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
+        leading: Container(
+          alignment: Alignment.center,
+          child: Image.asset(
+            ImagePath.logoImage2,
+            height: 25.h,
+          ),
+        ),
         backgroundColor: Colors.transparent,
       ),
       body: SingleChildScrollView(

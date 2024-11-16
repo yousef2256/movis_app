@@ -11,6 +11,7 @@ class DioFactory {
   static Future<Dio> getDio() async {
     const Duration timeOut = Duration(seconds: 30);
 
+    /// Initialize Dio instance
     if (dio == null) {
       dio = Dio();
       dio!
@@ -39,15 +40,4 @@ class DioFactory {
       ),
     );
   }
-}
-
-class Content {
-  String? name;
-  String? imageUrl;
-  String? titleImageUrl;
-  Content({
-    this.name,
-    this.imageUrl,
-    this.titleImageUrl,
-  });
 }
