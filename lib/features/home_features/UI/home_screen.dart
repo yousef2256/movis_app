@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movis_app/core/utils/constens/images.dart';
 import 'package:movis_app/features/home_features/UI/widgets/hot_movies.dart';
+import 'package:movis_app/features/home_features/UI/widgets/top_rated_movie_list/top_rated_movies_builder.dart';
+
+
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -35,10 +38,11 @@ class HomeScreen extends StatelessWidget {
                 style: TextStyle(fontSize: 18.sp),
               ),
             ),
-            // const TopRatedMovies(),
+
+            const TopRatedMoviesBuilder(),
 
             //top movies
-            
+
             //categoriess
 
             //

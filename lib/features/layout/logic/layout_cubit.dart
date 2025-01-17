@@ -1,7 +1,6 @@
-import 'package:bloc/bloc.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:meta/meta.dart';
+import 'package:flutter/material.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:movis_app/features/coming_soon/coming_soon.dart';
 import 'package:movis_app/features/download/download_screen.dart';
 import 'package:movis_app/features/home_features/UI/home_screen.dart';
@@ -9,12 +8,12 @@ import 'package:movis_app/features/menu/menu_screen.dart';
 import 'package:movis_app/features/search/search_screen.dart';
 
 part 'layout_state.dart';
+part 'layout_cubit.freezed.dart';
 
 class LayoutCubit extends Cubit<LayoutState> {
-  LayoutCubit() : super(LayoutInitial());
+  LayoutCubit() : super(const LayoutState.initial());
 
-  static LayoutCubit get(context) => BlocProvider.of(context);
-
+  // pages
   List<Widget> pages = [
     const HomeScreen(),
     const ComingSoonScreen(),
@@ -22,9 +21,11 @@ class LayoutCubit extends Cubit<LayoutState> {
     const DownloadsScreen(),
     const MenuScreen(),
   ];
+
+  // current index
   int currentIndex = 0;
-  void buttomNavigatinBarIndexChanged(int index) {
+  void changePage(int index) {
     currentIndex = index;
-    emit(ButtomNavigatinBarIndexChanged(index: index));
+    emit(LayoutState.currentPage(index));
   }
 }

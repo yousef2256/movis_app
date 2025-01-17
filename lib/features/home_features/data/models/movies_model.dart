@@ -1,35 +1,48 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:json_annotation/json_annotation.dart';
 
-part 'movies_model.freezed.dart';
 part 'movies_model.g.dart';
 
-@freezed
-class Movie with _$Movie {
-  const factory Movie({
-    required int id,
-    required bool adult,
-    required String backdropPath,
-    required List<int> genreIds,
-    required String originalLanguage,
-    required String originalTitle, 
-    required String overview,
-    required double popularity,
-    required String posterPath,
-    required String releaseDate,
-    required String title,
-    required bool video,
-    required double voteAverage,
-    required int voteCount,
-  }) = _Movie;
+@JsonSerializable()
+class MoviesResponseModel {
+  @JsonKey(name: 'results')
+  final List<MovieData?>? moviesList;
 
-  factory Movie.fromJson(Map<String, dynamic> json) => _$MovieFromJson(json);
+  MoviesResponseModel({required this.moviesList});
+
+  factory MoviesResponseModel.fromJson(Map<String, dynamic> json) =>
+      _$MoviesResponseModelFromJson(json);
 }
 
-@freezed
-class MoviesModel with _$MoviesModel {
-  const factory MoviesModel({
-    required List<Movie> movies,
-  }) = _MoviesModel;
+@JsonSerializable()
+class MovieData {
+  final int? id;
+  @JsonKey(name: 'backdrop_path')
+  final String? backdropPath;
+  @JsonKey(name: 'original_title')
+  final String? originalTitle;
+  final String? overview;
+  @JsonKey(name: 'poster_path')
+  final String? posterPath;
+  @JsonKey(name: 'release_date')
+  final String? releaseDate;
+  final String? title;
+  @JsonKey(name: 'vote_average')
+  final double? voteAverage;
+  @JsonKey(name: 'vote_count')
+  final int? voteCount;
 
-  factory MoviesModel.fromJson(Map<String, dynamic> json) => _$MoviesModelFromJson(json);
+  MovieData({
+    required this.id,
+    required this.backdropPath,
+    required this.originalTitle,
+    required this.overview,
+    required this.posterPath,
+    required this.releaseDate,
+    required this.title,
+    required this.voteAverage,
+    required this.voteCount,
+  });
+
+  factory MovieData.fromJson(Map<String, dynamic> json) =>
+      _$MovieDataFromJson(json);
 }
