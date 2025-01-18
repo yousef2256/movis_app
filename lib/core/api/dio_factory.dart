@@ -19,14 +19,17 @@ class DioFactory {
         ..options.connectTimeout = timeOut
         ..options.receiveTimeout = timeOut;
       addDioInterceptor();
+      addDioHeaders();
     }
-
     return dio!;
   }
 
-  /// Sets authorization token after login
-  static void setTokenIntoHeaderAfterLogin(String token) {
-    dio?.options.headers['Authorization'] = 'Bearer $token';
+  static void addDioHeaders() {
+    dio?.options.headers = {
+      'Accept': 'application/json',
+      'Authorization':
+          'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3Mzk2YWI2NzRiOGE1NzExMGQzYTA1Njg2OTc3ODhiNCIsIm5iZiI6MTczMTMzNzgzNy4yMDcsInN1YiI6IjY3MzIxZTZkNzY1ZDZkYjE3OGFiMjExZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.EpkatNc0bnQiFZrUzcLo2dtaInYlORvkIlzN96KW0bo',
+    };
   }
 
   /// Adds logging interceptor

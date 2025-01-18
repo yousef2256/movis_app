@@ -13,11 +13,11 @@ class MovisApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'Movis App',
-        darkTheme: darkTheme,
-        themeMode: ThemeMode.dark,
-        initialRoute: Routes.layout,
+      debugShowCheckedModeBanner: false,
+      title: 'Movis App',
+      darkTheme: darkTheme,
+      themeMode: ThemeMode.dark,
+      initialRoute: Routes.layout,
       onGenerateRoute: appRouter.generateRouter,
     );
   }

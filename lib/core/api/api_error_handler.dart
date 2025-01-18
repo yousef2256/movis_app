@@ -20,7 +20,7 @@ enum DataSource {
 
 class ResponseCode {
   static const int success = 200;
-  static const int noContent = 201; 
+  static const int noContent = 201;
   static const int badRequest = 400;
   static const int unauthorized = 401;
   static const int forbidden = 403;
@@ -129,7 +129,7 @@ extension DataSourceExtension on DataSource {
 }
 
 class ErrorHandler implements Exception {
-  late ApiErrorModel apiErrorModel;
+  late ApiErrorModel? apiErrorModel;
 
   ErrorHandler.handle(dynamic error) {
     apiErrorModel = error is DioException
