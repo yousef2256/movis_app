@@ -9,9 +9,10 @@ class TopMoviesShimmerLoading extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 130.h,
+      height: 250.h,
       child: ListView.separated(
-        separatorBuilder: (context, index) => const SizedBox(height: 10),
+        scrollDirection: Axis.horizontal,
+        separatorBuilder: (context, index) => SizedBox(height: 10.h),
         itemCount: 6,
         itemBuilder: (context, index) => Shimmer.fromColors(
           baseColor: AppColors.secondaryColor,
@@ -19,6 +20,7 @@ class TopMoviesShimmerLoading extends StatelessWidget {
           child: Container(
             height: 100,
             decoration: BoxDecoration(
+              color: Colors.grey,
               borderRadius: BorderRadius.circular(10),
             ),
           ),

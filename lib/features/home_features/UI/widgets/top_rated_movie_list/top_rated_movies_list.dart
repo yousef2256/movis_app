@@ -4,16 +4,23 @@ import 'package:movis_app/features/home_features/UI/widgets/top_rated_movie_list
 import '../../../data/models/movies_model.dart';
 
 class TopRatedMoviesList extends StatelessWidget {
-  final List<MovieData>? topRatedMoviesList;
-  const TopRatedMoviesList({super.key,required this.topRatedMoviesList});
+  final List<MovieData?>? topRatedMoviesList;
+  const TopRatedMoviesList({
+    super.key,
+    required this.topRatedMoviesList,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return ListView.separated(
-      separatorBuilder: (context, index) => SizedBox(width: 10.w),
-      itemCount: topRatedMoviesList!.length,
-      itemBuilder: (context, index) => TopRatedMovieItem(
-        topRatedMovie: topRatedMoviesList![index],
+    return SizedBox(
+      height: 250.h,
+      child: ListView.separated(
+        scrollDirection: Axis.horizontal,
+        separatorBuilder: (context, index) => SizedBox(width: 10.w),
+        itemCount: topRatedMoviesList!.length,
+        itemBuilder: (context, index) => TopRatedMovieItem(
+          topRatedMovie: topRatedMoviesList![index],
+        ),
       ),
     );
   }

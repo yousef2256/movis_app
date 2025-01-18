@@ -6,6 +6,7 @@ import 'package:movis_app/features/home_features/logic/home_cubit.dart';
 import 'package:movis_app/features/home_features/logic/home_state.dart';
 
 class TopRatedMoviesBuilder extends StatelessWidget {
+  
   const TopRatedMoviesBuilder({super.key});
 
   @override
@@ -17,11 +18,13 @@ class TopRatedMoviesBuilder extends StatelessWidget {
           current is TopRatedMoviesFaliure,
       builder: (context, state) => state.maybeWhen(
         topRatedMoviesLoading: () => const TopMoviesShimmerLoading(),
-        topRatedMoviesSuccess: (dynamic moviesList) {
+        topRatedMoviesSuccess: (moviesDataList) {
+          var moviesList = moviesDataList;
           return TopRatedMoviesList(
-            topRatedMoviesList: moviesList ?? [],
+            topRatedMoviesList: moviesList,
           );
         },
+        topRatedMoviesFaliure: (errorHandler) => const SizedBox.shrink(),
         orElse: () => const SizedBox.shrink(),
       ),
     );

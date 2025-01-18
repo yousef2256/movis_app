@@ -2,10 +2,7 @@
 
 class ApiConstents {
   // Base URL for all API requests
-  static const String apiBaseUrl = 'https://api.themoviedb.org/3';
-
-  // The API key should not be hardcoded in the source code
-  static const String apiKey = '7396ab674b8a57110d3a0568697788b4';
+  static const String apiBaseUrl = 'https://api.themoviedb.org/3/';
 }
 
 // lib/api_error_strings.dart

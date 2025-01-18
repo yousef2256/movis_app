@@ -14,7 +14,7 @@ class _HomeApiService implements HomeApiService {
     this.baseUrl,
     this.errorLogger,
   }) {
-    baseUrl ??= 'https://api.themoviedb.org/3';
+    baseUrl ??= 'https://api.themoviedb.org/3/';
   }
 
   final Dio _dio;
@@ -36,7 +36,7 @@ class _HomeApiService implements HomeApiService {
     )
         .compose(
           _dio.options,
-          'movie/top_rated',
+          '/movie/top_rated',
           queryParameters: queryParameters,
           data: _data,
         )

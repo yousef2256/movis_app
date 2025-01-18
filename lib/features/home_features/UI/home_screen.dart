@@ -4,8 +4,6 @@ import 'package:movis_app/core/utils/constens/images.dart';
 import 'package:movis_app/features/home_features/UI/widgets/hot_movies.dart';
 import 'package:movis_app/features/home_features/UI/widgets/top_rated_movie_list/top_rated_movies_builder.dart';
 
-
-
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
