@@ -8,7 +8,6 @@ import 'package:movis_app/features/auth_features/onpording/UI/onpording_screen.d
 import 'package:movis_app/features/auth_features/register/UI/register_page.dart';
 import 'package:movis_app/features/auth_features/fotget_password/forget_password.dart';
 import 'package:movis_app/features/auth_features/register/logic/cubit/register_cubit.dart';
-import 'package:movis_app/features/home_features/UI/home_screen.dart';
 import 'package:movis_app/features/home_features/logic/home_cubit.dart';
 import 'package:movis_app/features/layout/layout.dart';
 import 'package:movis_app/features/layout/logic/layout_cubit.dart';
@@ -16,13 +15,14 @@ import 'package:movis_app/features/layout/logic/layout_cubit.dart';
 class AppRouter {
   Route? generateRouter(RouteSettings settings) {
     switch (settings.name) {
-      // home page
-      case Routes.homePage:
+      // layout page
+      case Routes.layout:
         return MaterialPageRoute(
-          builder: (context) => BlocProvider(
-            create: (context) => HomeCubit(getIt())..getNowPlayingMovies(),
-            child: const HomeScreen(),
-          ),
+          builder: (context) => MultiBlocProvider(providers: [
+            BlocProvider(create: (context) => getIt<LayoutCubit>()),
+            BlocProvider(
+                create: (context) => getIt<HomeCubit>()..getNowPlayingMovies()),
+          ], child: const Layout()),
         );
 
       // auth pages
@@ -51,15 +51,6 @@ class AppRouter {
       case Routes.onpordingPage:
         return MaterialPageRoute(
           builder: (context) => const OnpordingScreen(),
-        );
-
-      // layout page
-      case Routes.layout:
-        return MaterialPageRoute(
-          builder: (context) => BlocProvider(
-            create: (context) => getIt<LayoutCubit>(),
-            child: const Layout(),
-          ),
         );
 
       // Default Route if no route is defined

@@ -21,28 +21,22 @@ class HomeScreen extends StatelessWidget {
         ),
         backgroundColor: Colors.transparent,
       ),
-      body: SingleChildScrollView(
+      body: const SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             //hot movies
-            const HotMovies(),
-
-            //new movies
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16.w),
-              child: Text(
-                'Top Rated Movies',
-                style: TextStyle(fontSize: 18.sp),
-              ),
-            ),
-
-            const TopRatedMoviesBuilder(),
-
+            HotMovies(),
+        
+            // top rated movies
+            TopRatedMoviesBuilder(),
+        
             //top movies
-
+            SizedBox(
+              height: 500,
+            )
             //categoriess
-
+        
             //
           ],
         ),

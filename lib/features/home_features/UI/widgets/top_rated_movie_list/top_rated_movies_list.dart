@@ -13,8 +13,9 @@ class TopRatedMoviesList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 250.h,
+      height: 200.h,
       child: ListView.separated(
+        padding: EdgeInsets.symmetric(horizontal: 16.w),
         scrollDirection: Axis.horizontal,
         separatorBuilder: (context, index) => SizedBox(width: 10.w),
         itemCount: topRatedMoviesList!.length,

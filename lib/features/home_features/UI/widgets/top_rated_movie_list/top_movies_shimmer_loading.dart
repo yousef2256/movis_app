@@ -9,7 +9,7 @@ class TopMoviesShimmerLoading extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 250.h,
+      height: 200.h,
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
         separatorBuilder: (context, index) => SizedBox(height: 10.h),
