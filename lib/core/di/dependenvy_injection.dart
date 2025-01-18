@@ -17,5 +17,5 @@ Future<void> setupGetIt() async {
   // home
   getIt.registerLazySingleton<HomeCubit>(() => HomeCubit(getIt()));
   getIt.registerLazySingleton<HomeApiService>(() => HomeApiService(dio));
-  getIt.registerLazySingletonAsync<HomeRepo>(() async => HomeRepo(getIt()));
+  getIt.registerCachedFactory<HomeRepo>(() => HomeRepo(getIt()));
 }
