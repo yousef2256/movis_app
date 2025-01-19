@@ -11,4 +11,16 @@ ThemeData darkTheme = ThemeData(
     onPrimary: AppColors.onPrimary,
     onSecondary: AppColors.onSecondary,
   ),
+  appBarTheme:const AppBarTheme(
+
+    color: Colors.black, // Set AppBar background to black
+    // backgroundColor: Colors.black, // Set AppBar background to black
+    elevation: 0, // Remove shadow
+    iconTheme:  IconThemeData(color: Colors.white), // Icon color
+    titleTextStyle:  TextStyle(
+      color: Colors.white, // Title color
+      fontSize: 20, // Title font size
+      fontWeight: FontWeight.bold,
+    ),
+  ),
 );

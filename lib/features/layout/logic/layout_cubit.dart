@@ -15,7 +15,7 @@ class LayoutCubit extends Cubit<LayoutState> {
 
   // pages
   List<Widget> pages = [
-    const HomeScreen(),
+    HomeScreen(),
     const ComingSoonScreen(),
     const SearchScreen(),
     const DownloadsScreen(),
