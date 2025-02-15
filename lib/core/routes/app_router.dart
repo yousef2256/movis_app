@@ -7,7 +7,7 @@ import 'package:movis_app/features/auth_features/login/logic/login_cubit.dart';
 import 'package:movis_app/features/auth_features/onpording/UI/onpording_screen.dart';
 import 'package:movis_app/features/auth_features/register/UI/register_page.dart';
 import 'package:movis_app/features/auth_features/fotget_password/forget_password.dart';
-import 'package:movis_app/features/auth_features/register/logic/cubit/register_cubit.dart';
+import 'package:movis_app/features/auth_features/register/logic/register_cubit.dart';
 import 'package:movis_app/features/home_features/logic/home_cubit.dart';
 import 'package:movis_app/features/layout/layout.dart';
 import 'package:movis_app/features/layout/logic/layout_cubit.dart';

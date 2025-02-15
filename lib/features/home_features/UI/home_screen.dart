@@ -11,7 +11,12 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       extendBodyBehindAppBar: true,
-      appBar: CustomeAppBar(scrollController: _scrollController),
+      appBar: CustomeAppBar(
+        scrollController: _scrollController,
+        leading: SizedBox(
+          width: 10,
+        ),
+      ),
       body: SingleChildScrollView(
         controller: _scrollController,
         child: const Column(

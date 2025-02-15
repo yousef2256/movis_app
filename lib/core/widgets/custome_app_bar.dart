@@ -1,13 +1,12 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import '../../../../core/utils/constens/images.dart';
 
 class CustomeAppBar extends StatefulWidget implements PreferredSizeWidget {
   final ScrollController scrollController;
+  final Widget? leading;
 
-  const CustomeAppBar({super.key, required this.scrollController});
+  const CustomeAppBar(
+      {super.key, required this.scrollController, this.leading});
 
   @override
   _CustomeAppBarState createState() => _CustomeAppBarState();
@@ -59,13 +58,13 @@ class _CustomeAppBarState extends State<CustomeAppBar> {
             ),
           ),
         AppBar(
-          leading: Container(
-            alignment: Alignment.center,
-            child: Image.asset(
-              ImagePath.logoImage2,
-              height: 25.h,
-            ),
-          ),
+          leading: widget.leading ??
+              IconButton(
+                icon: Icon(Icons.arrow_back_ios),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+              ),
           backgroundColor: Colors.transparent,
           elevation: 0,
         ),
