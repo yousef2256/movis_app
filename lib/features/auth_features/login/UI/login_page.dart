@@ -1,29 +1,41 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:movis_app/core/helpers/app_regex.dart';
 import 'package:movis_app/core/helpers/navegations.dart';
 import 'package:movis_app/core/helpers/spaser.dart';
 import 'package:movis_app/core/routes/routes.dart';
+import 'package:movis_app/core/theme/app/color_conestents.dart';
 import 'package:movis_app/core/theme/text_styls/texts_styles.dart';
-import 'package:movis_app/core/utils/constens/images.dart';
 import 'package:movis_app/core/widgets/custome_text_button.dart';
-import 'package:movis_app/features/auth_features/login/UI/widgets/custome_app_bar.dart';
+import 'package:movis_app/core/widgets/custome_app_bar.dart';
 import 'package:movis_app/core/widgets/custome_button.dart';
-import 'package:movis_app/core/widgets/custome_text_feald.dart';
-import 'package:movis_app/features/auth_features/login/logic/cubit/login_cubit.dart';
+import 'package:movis_app/features/auth_features/login/UI/widgets/email_and_password_fealds.dart';
+import 'package:movis_app/features/auth_features/login/UI/widgets/welcome_text_and_logo.dart';
+import 'package:movis_app/features/auth_features/login/logic/login_cubit.dart';
 
 class LoginPage extends StatelessWidget {
+  final ScrollController _scrollController = ScrollController();
   LoginPage({super.key});
 
-  final formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<LoginCubit, LoginState>(
-      listener: (context, state) {},
+      listener: (context, state) {
+        if (state is success) {
+          context.pushNamedAndRemoveUntil(Routes.layout,
+              predicate: (Route<dynamic> route) => false);
+        } else if (state is filyer) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(state.massage, style: TextStyles.buttonTextStyle),
+              backgroundColor: AppColors.primaryColor,
+            ),
+          );
+        }
+      },
       builder: (context, state) {
         return Scaffold(
-          appBar: const CustomeAppBar(),
+          appBar: CustomeAppBar(scrollController: _scrollController),
           body: Padding(
             padding: EdgeInsets.symmetric(horizontal: 20.w),
             child: Center(
@@ -32,112 +44,62 @@ class LoginPage extends StatelessWidget {
                   FocusScope.of(context).unfocus();
                 },
                 child: SingleChildScrollView(
-                  child: Form(
-                    key: formKey,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        //WELCOME TEXT
-                        Text(
-                          "W e l c o m e   IN",
-                          style: TextStyles.welcomeTextStyle,
-                        ),
-                        verticalSpace(10.h),
-                        //logo
-                        Image.asset(ImagePath.logoImage, height: 60.h),
-                        verticalSpace(30.h),
-                        //email field
-                        CustomeTextFeald(
-                          hintText: "Enter your email",
-                          textInputType: TextInputType.emailAddress,
-                          textInputAction: TextInputAction.next,
-                          validator: (value) {
-                            if (value == null ||
-                                value.isEmpty ||
-                                !AppRegex.isEmail(value)) {
-                              return "Please enter a valid email";
-                            }
-                            return null;
-                          },
-                        ),
-                        verticalSpace(14.h),
-                        //password field
-                        CustomeTextFeald(
-                          hintText: "Enter your password",
-                          textInputType: TextInputType.visiblePassword,
-                          textInputAction: TextInputAction.done,
-                          obscureText: context.read<LoginCubit>().showPassword,
-                          validator: (value) {
-                            if (value == null ||
-                                value.isEmpty ||
-                                !AppRegex.isPassword(value)) {
-                              return "Please enter a valid password";
-                            }
-                            return null;
-                          },
-                          suffixIcon: TextButton(
+                  controller: _scrollController,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      //WELCOME TEXT
+                      const WelcomeTextAndLogo(),
+
+                      //  email and password fields
+                      const EmailAndPasswordFealds(),
+
+                      //login button
+                      CustomeButton(
+                        text: state is Loading ? "Loading ...." : 'Login',
+                        onPressed: () {
+                          context.read<LoginCubit>().firbaseLoginLogic();
+                        },
+                      ),
+                      //forgot password button
+                      CustomTextButton(
+                        text: "Forgot password?",
+                        onPressed: () {
+                          context.pushNamed(Routes.forgotPassword);
+                        },
+                      ),
+                      verticalSpace(20.h),
+                      Text("OR", style: TextStyles.bodyGreyTextStyle),
+                      verticalSpace(10.h),
+                      //use a sign in code button
+                      CustomeButton(
+                        text: "Use a sign in code",
+                        onPressed: () {},
+                        color: Theme.of(context).colorScheme.secondary,
+                        textColor: Colors.white,
+                      ),
+                      verticalSpace(10.h),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text("Don't have an account?",
+                              style: TextStyles.bodyGreyTextStyle),
+                          verticalSpace(10.h),
+                          CustomTextButton(
+                            text: "Register Now",
                             onPressed: () {
-                              context.read<LoginCubit>().togglePassword();
+                              context.pushNamed(Routes.registerPage);
                             },
-                            child: Text(
-                              context.read<LoginCubit>().showPassword
-                                  ? "Show"
-                                  : "Hide",
-                              style: TextStyles.bodyGreyTextStyle,
-                            ),
                           ),
-                        ),
-                        verticalSpace(14.h),
-                        //login button
-                        CustomeButton(
-                          text: "Login",
-                          onPressed: () {
-                            if (formKey.currentState!.validate()) {
-                              context.pushNamedAndRemoveUntil(Routes.homePage,
-                                  predicate: (route) => false);
-                            }
-                          },
-                        ),
-                        //forgot password button
-                        CustomTextButton(
-                          text: "Forgot password?",
-                          onPressed: () {
-                            context.pushNamed(Routes.forgotPassword);
-                          },
-                        ),
-                        verticalSpace(20.h),
-                        Text("OR", style: TextStyles.bodyGreyTextStyle),
-                        verticalSpace(10.h),
-                        //use a sign in code button
-                        CustomeButton(
-                          text: "Use a sign in code",
-                          onPressed: () {},
-                          color: Theme.of(context).colorScheme.secondary,
-                          textColor: Colors.white,
-                        ),
-                        verticalSpace(10.h),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text("Don't have an account?",
-                                style: TextStyles.bodyGreyTextStyle),
-                            verticalSpace(10.h),
-                            CustomTextButton(
-                              text: "Register Now",
-                              onPressed: () {
-                                context.pushNamed(Routes.registerPage);
-                              },
-                            ),
-                          ],
-                        ),
-                        verticalSpace(30.h),
-                        Text(
-                          textAlign: TextAlign.center,
-                          "Sign in is protected by Google reCAPTCHA to\n ensure your not bot. Learn more",
-                          style: TextStyles.bodyGreyTextStyle,
-                        ),
-                      ],
-                    ),
+                        ],
+                      ),
+                      verticalSpace(30.h),
+                      Text(
+                        textAlign: TextAlign.center,
+                        "Sign in is protected by Google reCAPTCHA to\n ensure your not bot. Learn more",
+                        style: TextStyles.bodyGreyTextStyle,
+                      ),
+                    ],
                   ),
                 ),
               ),

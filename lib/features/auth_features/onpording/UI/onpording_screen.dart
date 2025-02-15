@@ -86,7 +86,7 @@ class OnpordingScreen extends StatelessWidget {
                             style: TextStyles.onboardingBodyStyle,
                           ),
                           Text(
-                            "StackMovis.com/more",
+                            "stackmovis.com/more",
                             style: TextStyles.onboardingLinkStyle,
                           ),
                         ],

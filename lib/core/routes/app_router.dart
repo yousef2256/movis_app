@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movis_app/core/di/dependenvy_injection.dart';
 import 'package:movis_app/core/routes/routes.dart';
 import 'package:movis_app/features/auth_features/login/UI/login_page.dart';
-import 'package:movis_app/features/auth_features/login/logic/cubit/login_cubit.dart';
+import 'package:movis_app/features/auth_features/login/logic/login_cubit.dart';
 import 'package:movis_app/features/auth_features/onpording/UI/onpording_screen.dart';
 import 'package:movis_app/features/auth_features/register/UI/register_page.dart';
 import 'package:movis_app/features/auth_features/fotget_password/forget_password.dart';
@@ -39,14 +39,14 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (context) => BlocProvider(
             create: (context) => RegisterCubit(),
-            child: const RegisterPage(),
+            child: RegisterPage(),
           ),
         );
 
       // Forgot Password Page
       case Routes.forgotPassword:
         return MaterialPageRoute(
-          builder: (context) => const ForgetPassword(),
+          builder: (context) => ForgetPassword(),
         );
       case Routes.onpordingPage:
         return MaterialPageRoute(

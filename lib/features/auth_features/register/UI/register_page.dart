@@ -10,11 +10,12 @@ import 'package:movis_app/core/utils/constens/images.dart';
 import 'package:movis_app/core/widgets/custome_button.dart';
 import 'package:movis_app/core/widgets/custome_text_button.dart';
 import 'package:movis_app/core/widgets/custome_text_feald.dart';
-import 'package:movis_app/features/auth_features/login/UI/widgets/custome_app_bar.dart';
+import 'package:movis_app/core/widgets/custome_app_bar.dart';
 import 'package:movis_app/features/auth_features/register/logic/cubit/register_cubit.dart';
 
 class RegisterPage extends StatelessWidget {
-  const RegisterPage({super.key});
+  final ScrollController _scrollController = ScrollController();
+ RegisterPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +24,7 @@ class RegisterPage extends StatelessWidget {
       listener: (context, state) {},
       builder: (context, state) {
         return Scaffold(
-          appBar: const CustomeAppBar(),
+          appBar: CustomeAppBar(scrollController: _scrollController,),
           body: Padding(
             padding: EdgeInsets.symmetric(horizontal: 20.w),
             child: Center(
@@ -32,6 +33,7 @@ class RegisterPage extends StatelessWidget {
                   FocusScope.of(context).unfocus();
                 },
                 child: SingleChildScrollView(
+                  controller: _scrollController,
                   child: Form(
                     key: formKey,
                     child: Column(

@@ -65,4 +65,5 @@ class DefaultFirebaseOptions {
     storageBucket: 'movies-app-75a08.firebasestorage.app',
     iosBundleId: 'com.example.movisApp',
   );
+
 }
