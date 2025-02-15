@@ -11,6 +11,9 @@ class CustomeTextFeald extends StatelessWidget {
   final Widget? suffixIcon;
   final Widget? prefixIcon;
   final String? Function(String?)? validator;
+  final TextStyle? textButtonStyle;
+  final void Function()? suffixOnPressed;
+  final String? textButton;
   const CustomeTextFeald({
     super.key,
     required this.hintText,
@@ -21,6 +24,9 @@ class CustomeTextFeald extends StatelessWidget {
     this.suffixIcon,
     this.prefixIcon,
     this.validator,
+    this.textButtonStyle,
+    this.suffixOnPressed,
+    this.textButton,
   });
 
   @override
@@ -33,7 +39,13 @@ class CustomeTextFeald extends StatelessWidget {
       obscureText: obscureText,
       decoration: InputDecoration(
         prefixIcon: prefixIcon,
-        suffixIcon: suffixIcon,
+        suffixIcon: TextButton(
+          onPressed: suffixOnPressed ?? () {},
+          child: Text(
+            textButton ?? '',
+            style: textButtonStyle ?? TextStyles.bodyGreyTextStyle,
+          ),
+        ),
         hintText: hintText,
         hintStyle: TextStyles.bodyGreyTextStyle,
         contentPadding: EdgeInsets.symmetric(vertical: 15.h, horizontal: 18.w),

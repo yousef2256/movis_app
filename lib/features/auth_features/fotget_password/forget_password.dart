@@ -8,16 +8,17 @@ import 'package:movis_app/core/theme/text_styls/texts_styles.dart';
 import 'package:movis_app/core/widgets/custome_button.dart';
 import 'package:movis_app/core/widgets/custome_text_button.dart';
 import 'package:movis_app/core/widgets/custome_text_feald.dart';
-import 'package:movis_app/features/auth_features/login/UI/widgets/custome_app_bar.dart';
+import 'package:movis_app/core/widgets/custome_app_bar.dart';
 
 class ForgetPassword extends StatelessWidget {
-  const ForgetPassword({super.key});
+  final ScrollController _scrollController = ScrollController();
+   ForgetPassword({super.key});
 
   @override
   Widget build(BuildContext context) {
     final formKey = GlobalKey<FormState>();
     return Scaffold(
-      appBar: const CustomeAppBar(),
+      appBar: CustomeAppBar(scrollController: _scrollController,),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 20.w),
         child: Center(
@@ -26,6 +27,7 @@ class ForgetPassword extends StatelessWidget {
               FocusScope.of(context).unfocus();
             },
             child: SingleChildScrollView(
+              controller: _scrollController,
               child: Form(
                 key: formKey,
                 child: Column(

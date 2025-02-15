@@ -1,22 +1,21 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../core/utils/constens/images.dart';
-
-class CustomeHomeAppBar extends StatefulWidget implements PreferredSizeWidget {
+class CustomeAppBar extends StatefulWidget implements PreferredSizeWidget {
   final ScrollController scrollController;
+  final Widget? leading;
 
-  const CustomeHomeAppBar({super.key, required this.scrollController});
+  const CustomeAppBar(
+      {super.key, required this.scrollController, this.leading});
 
   @override
-  _CustomeHomeAppBarState createState() => _CustomeHomeAppBarState();
+  _CustomeAppBarState createState() => _CustomeAppBarState();
 
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }
 
-class _CustomeHomeAppBarState extends State<CustomeHomeAppBar> {
+class _CustomeAppBarState extends State<CustomeAppBar> {
   bool isBlurred = false;
 
   @override
@@ -51,21 +50,21 @@ class _CustomeHomeAppBarState extends State<CustomeHomeAppBar> {
         if (isBlurred)
           ClipRect(
             child: BackdropFilter(
-              filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
+              filter: ImageFilter.blur(sigmaX: 15.0, sigmaY: 15.0),
               child: Container(
                 color:
-                    Colors.black.withOpacity(0.3), // Semi-transparent overlay
+                    Colors.black.withOpacity(0.2), // Semi-transparent overlay
               ),
             ),
           ),
         AppBar(
-          leading: Container(
-            alignment: Alignment.center,
-            child: Image.asset(
-              ImagePath.logoImage2,
-              height: 25.h,
-            ),
-          ),
+          leading: widget.leading ??
+              IconButton(
+                icon: Icon(Icons.arrow_back_ios),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+              ),
           backgroundColor: Colors.transparent,
           elevation: 0,
         ),
