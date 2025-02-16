@@ -31,10 +31,13 @@ class LoginCubit extends Cubit<LoginState> {
   Future<void> firbaseLoginLogic() async {
     emit(const LoginState.loading());
     try {
-      await FirebaseAuth.instance.signInWithEmailAndPassword(
+      UserCredential userCredential =
+          await FirebaseAuth.instance.signInWithEmailAndPassword(
         email: emailController.text.trim(),
         password: passwordController.text.trim(),
       );
+      await cacheHelper.saveData(
+          key: "userId", value: userCredential.user?.uid);
       emit(const LoginState.success());
     } on FirebaseAuthException catch (e) {
       final errorMessage = FirebaseErrorHandler.handleFirebaseAuthError(e.code);

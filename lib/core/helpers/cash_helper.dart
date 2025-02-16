@@ -3,8 +3,11 @@ import 'package:shared_preferences/shared_preferences.dart';
 class CacheHelper {
   static late SharedPreferences sharedPreferences;
 
+  // ! this is the key of userId in local database
+  static const String userId = "userId";
+
 //! Here The Initialize of cache .
-  init() async {
+ init() async {
     sharedPreferences = await SharedPreferences.getInstance();
   }
 

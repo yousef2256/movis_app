@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:movis_app/core/helpers/cash_helper.dart';
 import 'package:movis_app/core/routes/app_router.dart';
 import 'package:movis_app/core/helpers/blocObserver.dart';
 import 'package:movis_app/firebase_options.dart';
@@ -11,6 +12,8 @@ import 'core/di/dependenvy_injection.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  // cash helper initialize
+  CacheHelper().init();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   Bloc.observer = MyBlocObserver();
   SystemChrome.setSystemUIOverlayStyle(
