@@ -13,6 +13,7 @@ class TopRatedMovieItem extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         /// TODO: navigate to movie details screen with hero animation
+        print("navigate to movie details screen with hero animation");
       },
       child: SizedBox(
         height: 230,
