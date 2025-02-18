@@ -16,7 +16,6 @@ abstract class HomeApiService {
   Future<MoviesResponseModel> getTopRatedMovies();
 
   // categories List endpoint
-  @GET('')
+  @GET(HomeApiConestents.tvShowsEP)
   Future<CategoriesListModel> getCategoriesList();
-
 }

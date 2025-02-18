@@ -33,7 +33,7 @@ class HotMovies extends StatelessWidget {
                 fit: BoxFit.cover,
                 height: 230.h,
                 imageUrl:
-                    "${HomeApiConestents.imageBaseUrl}${topRatedMovie![7]!.posterPath}",
+                    "${HomeApiConestents.imageBaseUrl}${topRatedMovie![17]!.posterPath}",
                 errorWidget: (context, url, error) => const Icon(Icons.error),
               ),
             ),
@@ -47,7 +47,8 @@ class HotMovies extends StatelessWidget {
                 end: Alignment.bottomCenter,
                 colors: [
                   Color.fromARGB(134, 0, 0, 0),
-                  Color.fromARGB(172, 0, 0, 0),
+                  Color.fromARGB(212, 0, 0, 0),
+                  Color.fromARGB(219, 0, 0, 0),
                   Color.fromARGB(255, 0, 0, 0),
                 ],
               ),
@@ -57,7 +58,7 @@ class HotMovies extends StatelessWidget {
             top: 45.h,
             child: Container(
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(12),
+                borderRadius: BorderRadius.circular(17),
                 boxShadow: [
                   BoxShadow(
                     color: Colors.grey[850]!.withOpacity(0.1),
@@ -73,7 +74,7 @@ class HotMovies extends StatelessWidget {
                   fit: BoxFit.cover,
                   width: 240.w,
                   imageUrl:
-                      "${HomeApiConestents.imageBaseUrl}${topRatedMovie?[7]!.posterPath}",
+                      "${HomeApiConestents.imageBaseUrl}${topRatedMovie?[17]!.posterPath}",
                   errorWidget: (context, url, error) => const Icon(Icons.error),
                 ),
               ),
@@ -82,7 +83,7 @@ class HotMovies extends StatelessWidget {
 
           // buttons
           Positioned(
-            bottom: 35.h,
+            bottom: 25.h,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
