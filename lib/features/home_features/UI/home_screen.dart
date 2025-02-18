@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movis_app/core/widgets/custome_app_bar.dart';
-import 'package:movis_app/features/home_features/UI/widgets/hot_movies.dart';
+import 'package:movis_app/features/home_features/UI/widgets/hot_movie_panner/hot_movie_builder.dart';
 import 'package:movis_app/features/home_features/UI/widgets/top_rated_movie_list/top_rated_movies_builder.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -23,7 +23,7 @@ class HomeScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             // Hot movies
-            HotMovies(),
+            HotMovieBuilder(),
 
             // Top rated movies
             TopRatedMoviesBuilder(),

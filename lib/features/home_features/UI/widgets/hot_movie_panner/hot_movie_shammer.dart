@@ -1,12 +1,10 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:movis_app/core/helpers/spaser.dart';
-import 'package:movis_app/core/widgets/app_button.dart';
+import 'package:shimmer/shimmer.dart';
+import '../../../../../core/theme/app/color_conestents.dart';
 
-class HotMovies extends StatelessWidget {
-  const HotMovies({super.key});
+class HotMovieShammer extends StatelessWidget {
+  const HotMovieShammer({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,17 +17,6 @@ class HotMovies extends StatelessWidget {
           SizedBox(
             height: 450.h,
             width: double.infinity,
-            child: ImageFiltered(
-              imageFilter: ImageFilter.blur(
-                sigmaX: 5.0,
-                sigmaY: 8.0,
-              ),
-              child: Image.asset(
-                fit: BoxFit.fill,
-                // width: double.infinity,
-                'assets/movies_images/crown.jpg',
-              ),
-            ),
           ),
           Container(
             height: 500.h,
@@ -60,36 +47,17 @@ class HotMovies extends StatelessWidget {
                   ),
                 ],
               ),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(12),
-                child: Image.asset(
-                  width: 240.w,
-                  'assets/movies_images/crown.jpg',
+              child: Shimmer.fromColors(
+                baseColor: AppColors.secondaryColor,
+                highlightColor: AppColors.onSecondary,
+                child: Container(
+                  height: 240.h,
+                  decoration: BoxDecoration(
+                    color: Colors.grey,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
                 ),
               ),
-            ),
-          ),
-
-          // buttons
-          Positioned(
-            bottom: 35.h,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                AppButton(
-                  text: "Play",
-                  color: Colors.white,
-                  textColor: Colors.black,
-                  icon: Icons.play_arrow,
-                  onTap: () {},
-                ),
-                horizontalSpace(20.w),
-                AppButton(
-                  text: "my list",
-                  icon: Icons.add,
-                  onTap: () {},
-                ),
-              ],
             ),
           ),
         ],
